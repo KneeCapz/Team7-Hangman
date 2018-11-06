@@ -1,0 +1,13 @@
+E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\bin\Debug\Hangman.exe.config
+E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\bin\Debug\Hangman.exe
+E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\bin\Debug\Hangman.pdb
+E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\bin\Debug\Hangman.xml
+E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\obj\Debug\Hangman.vbprojAssemblyReference.cache
+E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\obj\Debug\Hangman.Form1.resources
+E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\obj\Debug\Hangman.Resources.resources
+E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\obj\Debug\Hangman.vbproj.GenerateResource.cache
+E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\obj\Debug\Hangman.vbproj.CoreCompileInputs.cache
+E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\obj\Debug\Hangman.exe
+E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\obj\Debug\Hangman.xml
+E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\obj\Debug\Hangman.pdb
+E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\obj\Debug\Hangman.Form2.resources
