@@ -3,6 +3,8 @@
     Dim bokstav As Char
     Dim letterpos As Integer = 0
 
+
+
     Private Declare Function HideCaret Lib "user32.dll" (ByVal hwnd As Int32) As Int32
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -10,6 +12,16 @@
         lblTest2.Visible = False
         lblTest3.Visible = False
         lblRettGalt.Visible = False
+
+
+        'BackgroundImage = My.Resources.spill_start
+        PictureBox1.Image = My.Resources.spill_start
+
+
+
+
+
+
     End Sub
 
     'avslutter spillet
@@ -41,7 +53,7 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSjekkbokstav.Click
 
         bokstav = txtBokstav.Text
-
+        'teller = lblSvar.Text
 
         Dim lengdeOrd As Integer = losningsOrd.Length()
         lblTest3.Text = lengdeOrd
@@ -49,9 +61,11 @@
         'sjekker om bokstaven finnes i ordet, om ikke legges bokstaven til linjen for brukte bokstaver
         If losningsOrd.Contains(bokstav) = False Then
             If lblGjettetbokstav.Text.Contains(bokstav) Then
+
             Else
                 lblGjettetbokstav.Text &= bokstav
             End If
+
 
             'kjøres om bokstaven finnes i ordet. sjekker fra bokstav 1 og gjennom hele ordet. Bytter ut "?" med bokstav i rett posisjon i label med skjult ord
         Else
@@ -64,9 +78,13 @@
 
         End If
 
+
+
         If lblSvar.Text.Contains("?") Then
         Else MsgBox("Du vant!")
         End If
+
+
 
         'If x = True Then
         'lblRettGalt.Text = "rett"
@@ -113,6 +131,34 @@
         lblTest3.Text = "test3"
 
     End Sub
+
+    Private Sub btnLyd_Click(sender As Object, e As EventArgs) Handles btnLyd.Click
+        If btnLyd.Text() = "Lyd Av" Then
+            btnLyd.Text() = "Lyd På"
+            My.Computer.Audio.Stop() ' stopper melodien
+
+        ElseIf btnLyd.Text() = "Lyd På" Then
+            btnLyd.Text() = "Lyd Av"
+            My.Computer.Audio.Play(My.Resources.intro, AudioPlayMode.BackgroundLoop) 'starter avspilling igjen.
+        End If
+    End Sub
+
+    Private Sub BindingSource1_CurrentChanged(sender As Object, e As EventArgs) Handles BindingSource1.CurrentChanged
+
+    End Sub
+
+
+
+
+
+
+
+
+    ' for å telle bokstaver i en string =  TextBox1.Text.Count(Function(x) Char.IsLetter(x) = True)
+
+
+
+
 
 
 End Class

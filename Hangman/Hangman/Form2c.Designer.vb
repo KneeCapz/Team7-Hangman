@@ -22,6 +22,7 @@ Partial Class Form2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.btnAvslutt2 = New System.Windows.Forms.Button()
         Me.btnTilmeny = New System.Windows.Forms.Button()
         Me.txtBokstav = New System.Windows.Forms.TextBox()
@@ -37,6 +38,11 @@ Partial Class Form2
         Me.lblGjettetbokstav = New System.Windows.Forms.Label()
         Me.lblOverskriftinput = New System.Windows.Forms.Label()
         Me.lblOverskriftbokstav = New System.Windows.Forms.Label()
+        Me.btnLyd = New System.Windows.Forms.Button()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnAvslutt2
@@ -45,7 +51,7 @@ Partial Class Form2
         Me.btnAvslutt2.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.btnAvslutt2.FlatAppearance.BorderSize = 3
         Me.btnAvslutt2.Font = New System.Drawing.Font("Viner Hand ITC", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAvslutt2.Location = New System.Drawing.Point(802, 485)
+        Me.btnAvslutt2.Location = New System.Drawing.Point(1260, 661)
         Me.btnAvslutt2.Name = "btnAvslutt2"
         Me.btnAvslutt2.Size = New System.Drawing.Size(150, 40)
         Me.btnAvslutt2.TabIndex = 5
@@ -58,7 +64,7 @@ Partial Class Form2
         Me.btnTilmeny.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.btnTilmeny.FlatAppearance.BorderSize = 3
         Me.btnTilmeny.Font = New System.Drawing.Font("Viner Hand ITC", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTilmeny.Location = New System.Drawing.Point(802, 35)
+        Me.btnTilmeny.Location = New System.Drawing.Point(1260, 298)
         Me.btnTilmeny.Name = "btnTilmeny"
         Me.btnTilmeny.Size = New System.Drawing.Size(150, 40)
         Me.btnTilmeny.TabIndex = 6
@@ -72,7 +78,7 @@ Partial Class Form2
         Me.txtBokstav.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtBokstav.Cursor = System.Windows.Forms.Cursors.Cross
         Me.txtBokstav.Font = New System.Drawing.Font("Viner Hand ITC", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBokstav.Location = New System.Drawing.Point(99, 458)
+        Me.txtBokstav.Location = New System.Drawing.Point(32, 616)
         Me.txtBokstav.MaxLength = 1
         Me.txtBokstav.Name = "txtBokstav"
         Me.txtBokstav.Size = New System.Drawing.Size(75, 85)
@@ -82,7 +88,7 @@ Partial Class Form2
         'btnSjekkbokstav
         '
         Me.btnSjekkbokstav.Font = New System.Drawing.Font("Viner Hand ITC", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSjekkbokstav.Location = New System.Drawing.Point(205, 503)
+        Me.btnSjekkbokstav.Location = New System.Drawing.Point(143, 661)
         Me.btnSjekkbokstav.Name = "btnSjekkbokstav"
         Me.btnSjekkbokstav.Size = New System.Drawing.Size(75, 40)
         Me.btnSjekkbokstav.TabIndex = 8
@@ -92,7 +98,7 @@ Partial Class Form2
         'txtLosningsOrd
         '
         Me.txtLosningsOrd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtLosningsOrd.Location = New System.Drawing.Point(554, 128)
+        Me.txtLosningsOrd.Location = New System.Drawing.Point(498, 652)
         Me.txtLosningsOrd.MaxLength = 10
         Me.txtLosningsOrd.Name = "txtLosningsOrd"
         Me.txtLosningsOrd.Size = New System.Drawing.Size(100, 20)
@@ -101,7 +107,7 @@ Partial Class Form2
         'lblSvar
         '
         Me.lblSvar.AutoSize = True
-        Me.lblSvar.Location = New System.Drawing.Point(96, 384)
+        Me.lblSvar.Location = New System.Drawing.Point(34, 545)
         Me.lblSvar.Name = "lblSvar"
         Me.lblSvar.Size = New System.Drawing.Size(0, 13)
         Me.lblSvar.TabIndex = 10
@@ -110,7 +116,7 @@ Partial Class Form2
         '
         Me.lblRettGalt.AutoSize = True
         Me.lblRettGalt.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lblRettGalt.Location = New System.Drawing.Point(680, 395)
+        Me.lblRettGalt.Location = New System.Drawing.Point(907, 691)
         Me.lblRettGalt.Name = "lblRettGalt"
         Me.lblRettGalt.Size = New System.Drawing.Size(50, 13)
         Me.lblRettGalt.TabIndex = 11
@@ -118,7 +124,7 @@ Partial Class Form2
         '
         'btnBekreftord
         '
-        Me.btnBekreftord.Location = New System.Drawing.Point(554, 164)
+        Me.btnBekreftord.Location = New System.Drawing.Point(498, 678)
         Me.btnBekreftord.Name = "btnBekreftord"
         Me.btnBekreftord.Size = New System.Drawing.Size(75, 23)
         Me.btnBekreftord.TabIndex = 12
@@ -128,7 +134,7 @@ Partial Class Form2
         'btnNullstill
         '
         Me.btnNullstill.Font = New System.Drawing.Font("Viner Hand ITC", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNullstill.Location = New System.Drawing.Point(802, 113)
+        Me.btnNullstill.Location = New System.Drawing.Point(1260, 344)
         Me.btnNullstill.Name = "btnNullstill"
         Me.btnNullstill.Size = New System.Drawing.Size(150, 40)
         Me.btnNullstill.TabIndex = 13
@@ -138,7 +144,7 @@ Partial Class Form2
         'lblTest
         '
         Me.lblTest.AutoSize = True
-        Me.lblTest.Location = New System.Drawing.Point(680, 432)
+        Me.lblTest.Location = New System.Drawing.Point(839, 688)
         Me.lblTest.Name = "lblTest"
         Me.lblTest.Size = New System.Drawing.Size(46, 13)
         Me.lblTest.TabIndex = 14
@@ -147,7 +153,7 @@ Partial Class Form2
         'lblTest2
         '
         Me.lblTest2.AutoSize = True
-        Me.lblTest2.Location = New System.Drawing.Point(680, 471)
+        Me.lblTest2.Location = New System.Drawing.Point(758, 688)
         Me.lblTest2.Name = "lblTest2"
         Me.lblTest2.Size = New System.Drawing.Size(52, 13)
         Me.lblTest2.TabIndex = 15
@@ -156,7 +162,7 @@ Partial Class Form2
         'lblTest3
         '
         Me.lblTest3.AutoSize = True
-        Me.lblTest3.Location = New System.Drawing.Point(680, 512)
+        Me.lblTest3.Location = New System.Drawing.Point(688, 688)
         Me.lblTest3.Name = "lblTest3"
         Me.lblTest3.Size = New System.Drawing.Size(52, 13)
         Me.lblTest3.TabIndex = 16
@@ -165,7 +171,7 @@ Partial Class Form2
         'lblGjettetbokstav
         '
         Me.lblGjettetbokstav.AutoSize = True
-        Me.lblGjettetbokstav.Location = New System.Drawing.Point(202, 458)
+        Me.lblGjettetbokstav.Location = New System.Drawing.Point(140, 616)
         Me.lblGjettetbokstav.Name = "lblGjettetbokstav"
         Me.lblGjettetbokstav.Size = New System.Drawing.Size(0, 13)
         Me.lblGjettetbokstav.TabIndex = 17
@@ -173,7 +179,7 @@ Partial Class Form2
         'lblOverskriftinput
         '
         Me.lblOverskriftinput.AutoSize = True
-        Me.lblOverskriftinput.Location = New System.Drawing.Point(551, 100)
+        Me.lblOverskriftinput.Location = New System.Drawing.Point(495, 636)
         Me.lblOverskriftinput.Name = "lblOverskriftinput"
         Me.lblOverskriftinput.Size = New System.Drawing.Size(78, 13)
         Me.lblOverskriftinput.TabIndex = 18
@@ -182,17 +188,43 @@ Partial Class Form2
         'lblOverskriftbokstav
         '
         Me.lblOverskriftbokstav.AutoSize = True
-        Me.lblOverskriftbokstav.Location = New System.Drawing.Point(96, 432)
+        Me.lblOverskriftbokstav.Location = New System.Drawing.Point(34, 586)
         Me.lblOverskriftbokstav.Name = "lblOverskriftbokstav"
         Me.lblOverskriftbokstav.Size = New System.Drawing.Size(104, 13)
         Me.lblOverskriftbokstav.TabIndex = 19
         Me.lblOverskriftbokstav.Text = "Skriv inn en bokstav"
         '
+        'btnLyd
+        '
+        Me.btnLyd.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.btnLyd.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.btnLyd.FlatAppearance.BorderSize = 3
+        Me.btnLyd.Font = New System.Drawing.Font("Viner Hand ITC", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLyd.Location = New System.Drawing.Point(1260, 390)
+        Me.btnLyd.Name = "btnLyd"
+        Me.btnLyd.Size = New System.Drawing.Size(150, 40)
+        Me.btnLyd.TabIndex = 20
+        Me.btnLyd.Text = "Lyd Av"
+        Me.btnLyd.UseVisualStyleBackColor = False
+        '
+        'BindingSource1
+        '
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Hangman.My.Resources.Resources.spill_start
+        Me.PictureBox1.Location = New System.Drawing.Point(32, 28)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1159, 503)
+        Me.PictureBox1.TabIndex = 21
+        Me.PictureBox1.TabStop = False
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(984, 561)
+        Me.ClientSize = New System.Drawing.Size(1422, 713)
+        Me.Controls.Add(Me.btnLyd)
         Me.Controls.Add(Me.lblOverskriftbokstav)
         Me.Controls.Add(Me.lblOverskriftinput)
         Me.Controls.Add(Me.lblGjettetbokstav)
@@ -208,10 +240,13 @@ Partial Class Form2
         Me.Controls.Add(Me.txtBokstav)
         Me.Controls.Add(Me.btnTilmeny)
         Me.Controls.Add(Me.btnAvslutt2)
+        Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form2"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form2"
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -232,4 +267,7 @@ Partial Class Form2
     Friend WithEvents lblGjettetbokstav As Label
     Friend WithEvents lblOverskriftinput As Label
     Friend WithEvents lblOverskriftbokstav As Label
+    Friend WithEvents btnLyd As Button
+    Friend WithEvents BindingSource1 As BindingSource
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

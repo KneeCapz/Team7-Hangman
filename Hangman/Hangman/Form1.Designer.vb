@@ -22,11 +22,14 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.btnLyd = New System.Windows.Forms.Button()
         Me.btnBakgrunn = New System.Windows.Forms.Button()
         Me.btnAvslutt = New System.Windows.Forms.Button()
         Me.btnStart = New System.Windows.Forms.Button()
         Me.lblRegler = New System.Windows.Forms.Label()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnLyd
@@ -114,6 +117,7 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -122,4 +126,5 @@ Partial Class Form1
     Friend WithEvents btnAvslutt As Button
     Friend WithEvents btnStart As Button
     Friend WithEvents lblRegler As Label
+    Friend WithEvents BindingSource1 As BindingSource
 End Class

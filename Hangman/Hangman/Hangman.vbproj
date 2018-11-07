@@ -146,5 +146,13 @@
   <ItemGroup>
     <None Include="Resources\Hangman2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\intro.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Hangman feil 1.jpeg" />
+    <Content Include="Resources\spill_start.jpeg" />
+    <Content Include="Resources\ordliste_random.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

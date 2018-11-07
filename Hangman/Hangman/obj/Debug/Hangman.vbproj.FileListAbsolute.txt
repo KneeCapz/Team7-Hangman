@@ -11,3 +11,16 @@ E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\obj\Debug\Hangman.e
 E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\obj\Debug\Hangman.xml
 E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\obj\Debug\Hangman.pdb
 E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\obj\Debug\Hangman.Form2.resources
+C:\Users\Miner2\OneDrive - NTNU\IFUD1105 Teamarbeid\Team7-Hangman-master\Hangman\Hangman\bin\Debug\Hangman.exe.config
+C:\Users\Miner2\OneDrive - NTNU\IFUD1105 Teamarbeid\Team7-Hangman-master\Hangman\Hangman\bin\Debug\Hangman.exe
+C:\Users\Miner2\OneDrive - NTNU\IFUD1105 Teamarbeid\Team7-Hangman-master\Hangman\Hangman\bin\Debug\Hangman.pdb
+C:\Users\Miner2\OneDrive - NTNU\IFUD1105 Teamarbeid\Team7-Hangman-master\Hangman\Hangman\bin\Debug\Hangman.xml
+C:\Users\Miner2\OneDrive - NTNU\IFUD1105 Teamarbeid\Team7-Hangman-master\Hangman\Hangman\obj\Debug\Hangman.vbprojAssemblyReference.cache
+C:\Users\Miner2\OneDrive - NTNU\IFUD1105 Teamarbeid\Team7-Hangman-master\Hangman\Hangman\obj\Debug\Hangman.Form1.resources
+C:\Users\Miner2\OneDrive - NTNU\IFUD1105 Teamarbeid\Team7-Hangman-master\Hangman\Hangman\obj\Debug\Hangman.Form2.resources
+C:\Users\Miner2\OneDrive - NTNU\IFUD1105 Teamarbeid\Team7-Hangman-master\Hangman\Hangman\obj\Debug\Hangman.Resources.resources
+C:\Users\Miner2\OneDrive - NTNU\IFUD1105 Teamarbeid\Team7-Hangman-master\Hangman\Hangman\obj\Debug\Hangman.vbproj.GenerateResource.cache
+C:\Users\Miner2\OneDrive - NTNU\IFUD1105 Teamarbeid\Team7-Hangman-master\Hangman\Hangman\obj\Debug\Hangman.vbproj.CoreCompileInputs.cache
+C:\Users\Miner2\OneDrive - NTNU\IFUD1105 Teamarbeid\Team7-Hangman-master\Hangman\Hangman\obj\Debug\Hangman.exe
+C:\Users\Miner2\OneDrive - NTNU\IFUD1105 Teamarbeid\Team7-Hangman-master\Hangman\Hangman\obj\Debug\Hangman.xml
+C:\Users\Miner2\OneDrive - NTNU\IFUD1105 Teamarbeid\Team7-Hangman-master\Hangman\Hangman\obj\Debug\Hangman.pdb

@@ -14,8 +14,15 @@
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        bak1 = New Bitmap(Image.FromFile("E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\hangman.jpg"))
-        bak2 = New Bitmap(Image.FromFile("E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\hangman2.jpg"))
+
+        My.Computer.Audio.Play(My.Resources.intro, AudioPlayMode.BackgroundLoop) 'starter avspilling av intromelodi, i loop
+        ' for at denne skulle spilles av måtte følgende gjøres: Toolbox, høyreklikke på Binding Source. Velge COM Component. Huk av Windows Media Player
+
+        'bak1 = New Bitmap(Image.FromFile("E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\hangman.jpg"))
+        'bak2 = New Bitmap(Image.FromFile("E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\hangman2.jpg"))
+        bak1 = My.Resources.hangman
+        bak2 = My.Resources.Hangman2
+
 
     End Sub
 
@@ -54,8 +61,12 @@
     Private Sub btnLyd_Click(sender As Object, e As EventArgs) Handles btnLyd.Click
         If btnLyd.Text() = "Lyd Av" Then
             btnLyd.Text() = "Lyd På"
+            My.Computer.Audio.Stop() ' stopper melodien
+
         ElseIf btnLyd.Text() = "Lyd På" Then
             btnLyd.Text() = "Lyd Av"
+            My.Computer.Audio.Play(My.Resources.intro, AudioPlayMode.BackgroundLoop) 'starter avspilling igjen.
         End If
+
     End Sub
 End Class
