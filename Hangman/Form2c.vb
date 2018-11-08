@@ -1,17 +1,27 @@
 ﻿Public Class Form2
+
     Dim losningsOrd As String
     Dim bokstav As Char
     Dim letterpos As Integer = 0
     Dim feilTeller As Integer = 0
+    Dim temp As New System.Text.StringBuilder
+    Dim tavle As Media.SoundPlayer = New Media.SoundPlayer(My.Resources.tavle)
+    Dim tap As Media.SoundPlayer = New Media.SoundPlayer(My.Resources.tap)
+    Dim click1 As Media.SoundPlayer = New Media.SoundPlayer(My.Resources.click1)
+    Dim clap As Media.SoundPlayer = New Media.SoundPlayer(My.Resources.clap)
+
+
 
     Private Declare Function HideCaret Lib "user32.dll" (ByVal hwnd As Int32) As Int32
 
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        lblTest.Visible = False
-        lblTest2.Visible = False
-        lblTest3.Visible = False
-        lblRettGalt.Visible = False
+    'Skjuler tekstmarkør i inputboks for bokstav når den får fokus
+    Private Sub txtBokstav2_TextChanged(sender As Object, e As EventArgs) Handles txtBokstav.GotFocus
+        Call HideCaret(txtBokstav.Handle)
     End Sub
+
+    'Private Sub txtBokstav_TextChanged(sender As Object, e As EventArgs) Handles txtBokstav.TextChanged
+    'Call HideCaret(txtBokstav.Handle)
+    'End Sub
 
     'avslutter spillet
     Private Sub btnAvslutt_Click(sender As Object, e As EventArgs) Handles btnAvslutt2.Click
@@ -25,104 +35,153 @@
 
     'tilbake til meny
     Private Sub btnTilmeny_Click(sender As Object, e As EventArgs) Handles btnTilmeny.Click
+        click1.Play()
         Form1.Show()
         Me.Close()
     End Sub
 
-    Private Sub txtBokstav_TextChanged(sender As Object, e As EventArgs) Handles txtBokstav.TextChanged
-        Call HideCaret(txtBokstav.Handle)
+    'Tillater kun bokstaver i feltet for inntasting av bokstaver
+    Private Sub txtBokstav_KeyPress(sender As Object, e As KeyPressEventArgs) _
+                              Handles txtBokstav.KeyPress
+        If Not (Asc(e.KeyChar) = 8) Then
+            Dim allowedChars As String = "abcdefghijklmnopqrstuvwxyzæøå"
+            If Not allowedChars.Contains(e.KeyChar.ToString.ToLower) Then
+                e.KeyChar = ChrW(0)
+                e.Handled = True
+            End If
+        End If
     End Sub
 
-    Dim temp As New System.Text.StringBuilder
+    'Tillater kun bokstaver i feltet for inntasting av løsningsord
+    Private Sub txtLosningsord_KeyPress(sender As Object, e As KeyPressEventArgs) _
+                              Handles txtLosningsOrd.KeyPress
+        If Not (Asc(e.KeyChar) = 8) Then
+            Dim allowedChars As String = "abcdefghijklmnopqrstuvwxyzæøå"
+            If Not allowedChars.Contains(e.KeyChar.ToString.ToLower) Then
+                e.KeyChar = ChrW(0)
+                e.Handled = True
+            End If
+        End If
+    End Sub
 
     'Sjekker inntastet bokstav mot bokstaver i løsningsord og skriver rett eller galt og fyller ut eventuelt rett bokstav i ordet, eller legger til på hangman
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSjekkbokstav.Click
-
         bokstav = txtBokstav.Text
         Dim lengdeOrd As Integer = losningsOrd.Length()
-        lblTest3.Text = lengdeOrd
 
-        'sjekker om bokstaven finnes i ordet, om ikke legges bokstaven til linjen for brukte bokstaver.
+        'sjekker om bokstaven finnes i ordet, om ikke legges bokstaven til linjen for brukte bokstaver og lyd spilles av.
         'teller antall feil inntastinger. Samme bokstav flere ganger teller ikke som feil
-        If losningsOrd.Contains(bokstav) = False Then
-            If lblGjettetbokstav.Text.Contains(bokstav) Then
+        If txtBokstav.Text = "" Then
+            MsgBox("Skriv inn en bokstav")
+            txtBokstav.Select()
+        Else
 
-            Else
+            If losningsOrd.Contains(bokstav) = False Then
                 lblGjettetbokstav.Text &= bokstav
                 feilTeller = feilTeller + 1
+                tavle.Play()
+
+                'kjøres om bokstaven finnes i ordet. sjekker fra bokstav 1 og gjennom hele ordet.
+                'Bytter ut "?" med bokstav i rett posisjon i labelen med skjult ord (lblSvar)
+            Else
+                letterpos = 0
+                Do While InStr(letterpos + 1, losningsOrd, bokstav) > 0
+                    letterpos = InStr(letterpos + 1, losningsOrd, bokstav)
+                    Mid(lblSvar.Text, letterpos, 1) = bokstav
+                Loop
+
             End If
 
-            'kjøres om bokstaven finnes i ordet. sjekker fra bokstav 1 og gjennom hele ordet.
-            'Bytter ut "?" med bokstav i rett posisjon i labelen med skjult ord (lblSvar)
-        Else
-            letterpos = 0
-            Do While InStr(letterpos + 1, losningsOrd, bokstav) > 0
-                letterpos = InStr(letterpos + 1, losningsOrd, bokstav)
-                'MsgBox(letterpos)
-                Mid(lblSvar.Text, letterpos, 1) = bokstav
-            Loop
+            'Om antall feil er større enn 5 er spillet tapt. Om antall feil er under 5 sjekkes det om alle bokstaver er funnet, og i såfall er spillet vunnet.
+            'Endrer bakgrunn etter hvor mange feil man har
+            If lblSvar.Text.Contains("-") And feilTeller = 5 Then
+                PictureBox.BackgroundImage = My.Resources.Hangman5
+                tap.Play()
+                MsgBox("Du tapte!")
+            ElseIf lblSvar.Text.Contains("-") Then
+                If feilTeller = 1 Then
+                    PictureBox.BackgroundImage = My.Resources.Hangman1
+                ElseIf feilTeller = 2 Then
+                    PictureBox.BackgroundImage = My.Resources.Hangman2
+                ElseIf feilTeller = 3 Then
+                    PictureBox.BackgroundImage = My.Resources.Hangman3
+                ElseIf feilTeller = 4 Then
+                    PictureBox.BackgroundImage = My.Resources.Hangman4
+                End If
+            Else clap.Play()
+                MsgBox("Du vant!")
+                btnBekreftord.Show()
+                txtLosningsOrd.Show()
+                lblOverskriftinput.Show()
+                lblOverskriftbokstav.Hide()
+                txtBokstav.Hide()
+                btnSjekkbokstav.Hide()
+                txtLosningsOrd.Text = Nothing
+                txtBokstav.Text = Nothing
+                lblSvar.Text = ""
+                losningsOrd = Nothing
+                bokstav = Nothing
+                lblGjettetbokstav.Text = ""
+                feilTeller = 0
+                PictureBox.BackgroundImage = My.Resources.Hangman0
 
-        End If
-
-        'Om antall feil er større enn 5 er spillet tapt. Om antall feil er under 5 sjekkes det om alle bokstaver er funnet, og i såfall er spillet vunnet.
-        'Endrer bakgrunn etter hvor mange feil man har
-        If lblSvar.Text.Contains("?") And feilTeller = 5 Then
-            Me.BackgroundImage = My.Resources.Hangman5
-            MsgBox("Du tapte!")
-        ElseIf lblSvar.Text.Contains("?") Then
-            If feilTeller = 1 Then
-                Me.BackgroundImage = My.Resources.Hangman1
-            ElseIf feilTeller = 2 Then
-                Me.BackgroundImage = My.Resources.Hangman2
-            ElseIf feilTeller = 3 Then
-                Me.BackgroundImage = My.Resources.Hangman3
-            ElseIf feilTeller = 4 Then
-                Me.BackgroundImage = My.Resources.Hangman4
             End If
-        Else MsgBox("Du vant!")
+
+            txtBokstav.Text = ""
+            txtBokstav.Select()
 
         End If
-
-        txtBokstav.Text = ""
-        txtBokstav.Select()
 
     End Sub
 
     'Henter det inntastede ordet og lagrer det, og lager en string med antall "?" lik løsningsordet som skrives til label.
+    'Om ordet er under tre bokstaver vil en varselboks vises
     'Setter fokus til boks for inntasting av bokstav
     Private Sub btnBekreftord_Click(sender As Object, e As EventArgs) Handles btnBekreftord.Click
+        click1.Play()
+        If txtLosningsOrd.Text.Length() < 3 Then
+            MsgBox("Ordet må være på minst 3 bokstaver")
+        Else
+            losningsOrd = txtLosningsOrd.Text
+            lblSvar.Text = ""
+            txtLosningsOrd.Hide()
+            btnBekreftord.Hide()
+            lblOverskriftinput.Hide()
+            lblOverskriftbokstav.Show()
+            txtBokstav.Show()
+            btnSjekkbokstav.Show()
 
-        losningsOrd = txtLosningsOrd.Text
-        lblSvar.Text = ""
-        txtLosningsOrd.Hide()
-        btnBekreftord.Hide()
+            Dim temp As New System.Text.StringBuilder
+            For Each Character As Char In losningsOrd
+                temp.Append("-")
+            Next
 
-        Dim temp As New System.Text.StringBuilder
-        For Each Character As Char In losningsOrd
-            temp.Append("?")
-        Next
+            lblSvar.Text = temp.ToString
+            txtBokstav.Select()
+        End If
 
-        lblSvar.Text = temp.ToString
-        txtBokstav.Select()
 
     End Sub
 
-    'tømmer alle felt og viser knapper for bekreft ord, løsningsord. Setter løsningsord og bokstav til null og bakgrunnen til start
+    'tømmer alle felt og setter løsningsord og bokstav til null og bakgrunnen til start
+    'viser knapp for bekreft ord og tekstboks for inntasting av løsningsord og overskriften til denne
+    'skjuler knapp for bekreft  bokstav og tekstboks for inntasting av bokstav og overskriften til denne
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles btnNullstill.Click
-
+        click1.Play()
         btnBekreftord.Show()
         txtLosningsOrd.Show()
+        lblOverskriftinput.Show()
+        lblOverskriftbokstav.Hide()
+        txtBokstav.Hide()
+        btnSjekkbokstav.Hide()
         txtLosningsOrd.Text = Nothing
         txtBokstav.Text = Nothing
-        lblSvar.Text = "?"
+        lblSvar.Text = ""
         losningsOrd = Nothing
         bokstav = Nothing
         lblGjettetbokstav.Text = ""
-        lblTest.Text = "test1"
-        lblTest2.Text = "test2"
-        lblTest3.Text = "test3"
         feilTeller = 0
-        Me.BackgroundImage = My.Resources.Hangman0
+        Me.PictureBox.BackgroundImage = Global.Hangman.My.Resources.Resources.Hangman0
     End Sub
 
     'slår av og på bakgrunnslyd
@@ -137,7 +196,35 @@
         End If
     End Sub
 
-    Private Sub BindingSource1_CurrentChanged(sender As Object, e As EventArgs) Handles BindingSource1.CurrentChanged
+    Private Sub btnHentord_Click(sender As Object, e As EventArgs) Handles btnHentord.Click
+        Dim ordlisteTeller As Integer
+        ordlisteTeller = Int((100 * Rnd()) + 1)
+        Dim fileReader As System.IO.StreamReader
+        fileReader = My.Computer.FileSystem.OpenTextFileReader("E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\Resources\ordliste.txt")
+        Dim stringReader As String = Nothing
+
+
+        For counter As Integer = 1 To ordlisteTeller
+            stringReader = fileReader.ReadLine()
+        Next
+
+        txtTest.Text = stringReader
+        losningsOrd = txtTest.Text
+        lblSvar.Text = ""
+        txtLosningsOrd.Hide()
+        btnBekreftord.Hide()
+        lblOverskriftbokstav.Show()
+        txtBokstav.Show()
+        btnSjekkbokstav.Show()
+
+        Dim temp As New System.Text.StringBuilder
+        For Each Character As Char In losningsOrd
+            temp.Append("-")
+        Next
+
+        lblSvar.Text = temp.ToString
+        txtBokstav.Select()
 
     End Sub
+
 End Class
