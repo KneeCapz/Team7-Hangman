@@ -1,9 +1,14 @@
-﻿Public Class Form2
+﻿Imports System.IO
+
+Public Class Form2
 
     Dim losningsOrd As String
     Dim bokstav As Char
     Dim letterpos As Integer = 0
     Dim feilTeller As Integer = 0
+
+
+
     Dim temp As New System.Text.StringBuilder
     Dim tavle As Media.SoundPlayer = New Media.SoundPlayer(My.Resources.tavle)
     Dim tap As Media.SoundPlayer = New Media.SoundPlayer(My.Resources.tap)
@@ -64,7 +69,18 @@
         End If
     End Sub
 
+    'lar brukeren trykke enter for å sende bokstav
+    Private Sub TextBox1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtBokstav.KeyDown
+
+        If e.KeyCode = Keys.Enter Then
+
+            Call btnSjekkbokstav.PerformClick()
+
+        End If
+
+    End Sub
     'Sjekker inntastet bokstav mot bokstaver i løsningsord og skriver rett eller galt og fyller ut eventuelt rett bokstav i ordet, eller legger til på hangman
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSjekkbokstav.Click
         bokstav = txtBokstav.Text
         Dim lengdeOrd As Integer = losningsOrd.Length()
@@ -77,9 +93,13 @@
         Else
 
             If losningsOrd.Contains(bokstav) = False Then
-                lblGjettetbokstav.Text &= bokstav
-                feilTeller = feilTeller + 1
-                tavle.Play()
+                If lblGjettetbokstav.Text.Contains(bokstav) Then
+
+                Else
+                    lblGjettetbokstav.Text &= bokstav
+                    feilTeller = feilTeller + 1
+                    tavle.Play()
+                End If
 
                 'kjøres om bokstaven finnes i ordet. sjekker fra bokstav 1 og gjennom hele ordet.
                 'Bytter ut "?" med bokstav i rett posisjon i labelen med skjult ord (lblSvar)
@@ -95,35 +115,55 @@
             'Om antall feil er større enn 5 er spillet tapt. Om antall feil er under 5 sjekkes det om alle bokstaver er funnet, og i såfall er spillet vunnet.
             'Endrer bakgrunn etter hvor mange feil man har
             If lblSvar.Text.Contains("-") And feilTeller = 5 Then
-                PictureBox.BackgroundImage = My.Resources.Hangman5
+                Me.PictureBox.BackgroundImage = Global.Hangman.My.Resources.Resources.Hangman5
                 tap.Play()
-                MsgBox("Du tapte!")
-            ElseIf lblSvar.Text.Contains("-") Then
-                If feilTeller = 1 Then
-                    PictureBox.BackgroundImage = My.Resources.Hangman1
-                ElseIf feilTeller = 2 Then
-                    PictureBox.BackgroundImage = My.Resources.Hangman2
-                ElseIf feilTeller = 3 Then
-                    PictureBox.BackgroundImage = My.Resources.Hangman3
-                ElseIf feilTeller = 4 Then
-                    PictureBox.BackgroundImage = My.Resources.Hangman4
-                End If
-            Else clap.Play()
-                MsgBox("Du vant!")
+                MsgBox("Du tapte! Ordet var " & "" & losningsOrd)
                 btnBekreftord.Show()
+                Random.Show()
                 txtLosningsOrd.Show()
                 lblOverskriftinput.Show()
                 lblOverskriftbokstav.Hide()
                 txtBokstav.Hide()
                 btnSjekkbokstav.Hide()
+                lblBruktebokstaver.Hide()
                 txtLosningsOrd.Text = Nothing
                 txtBokstav.Text = Nothing
-                lblSvar.Text = ""
                 losningsOrd = Nothing
                 bokstav = Nothing
+                lblSvar.Text = ""
                 lblGjettetbokstav.Text = ""
                 feilTeller = 0
-                PictureBox.BackgroundImage = My.Resources.Hangman0
+                Me.PictureBox.BackgroundImage = Global.Hangman.My.Resources.Resources.Hangman0
+
+            ElseIf lblSvar.Text.Contains("-") Then
+                If feilTeller = 1 Then
+                    Me.PictureBox.BackgroundImage = Global.Hangman.My.Resources.Resources.Hangman1
+                ElseIf feilTeller = 2 Then
+                    Me.PictureBox.BackgroundImage = Global.Hangman.My.Resources.Resources.Hangman2
+                ElseIf feilTeller = 3 Then
+                    Me.PictureBox.BackgroundImage = Global.Hangman.My.Resources.Resources.Hangman3
+                ElseIf feilTeller = 4 Then
+                    Me.PictureBox.BackgroundImage = Global.Hangman.My.Resources.Resources.Hangman4
+                End If
+
+            Else clap.Play()
+                MsgBox("Du vant!")
+                btnBekreftord.Show()
+                Random.Show()
+                txtLosningsOrd.Show()
+                lblOverskriftinput.Show()
+                lblOverskriftbokstav.Hide()
+                txtBokstav.Hide()
+                btnSjekkbokstav.Hide()
+                lblBruktebokstaver.Hide()
+                txtLosningsOrd.Text = Nothing
+                txtBokstav.Text = Nothing
+                losningsOrd = Nothing
+                bokstav = Nothing
+                lblSvar.Text = ""
+                lblGjettetbokstav.Text = ""
+                feilTeller = 0
+                Me.PictureBox.BackgroundImage = Global.Hangman.My.Resources.Resources.Hangman0
 
             End If
 
@@ -133,6 +173,51 @@
         End If
 
     End Sub
+
+    'gjemmer valget for manuell input av ord, og velger et tilfeldig et fra ordlisten. (textfil)
+    'lagrer valgt ord som ....
+
+    Private Sub Random_Click(sender As Object, e As EventArgs) Handles Random.Click
+        click1.Play()
+
+        Dim ord() As String = My.Resources.ordliste_random.Split(Environment.NewLine)
+        'txt filer lagret i resources er lagret som byte arrays, og kan derfor ikke leses av direkte.
+        'filen må .splittes for å få hver linje lesbar.
+
+        Dim rnd As New Random()
+
+        Dim selectedIndex = rnd.Next(1, ord.Length) 'Velger en tilfeldig index
+
+        Dim selectedName = ord(selectedIndex)
+
+        'usnylig tegn dukker opp foran ord fra listen. klarte ikke å finne dette ut , så den ble fjernet ved hjelp av linjen under
+        selectedName = selectedName.Remove(0, 1)
+
+        txtLosningsOrd.Text = selectedName
+        losningsOrd = txtLosningsOrd.Text
+        lblSvar.Text = ""
+        txtLosningsOrd.Hide()
+        btnBekreftord.Hide()
+        lblOverskriftbokstav.Show()
+        txtBokstav.Show()
+        btnSjekkbokstav.Show()
+        Random.Hide()
+        lblOverskriftinput.Hide()
+        lblBruktebokstaver.Show()
+
+        Dim streker As String = ""
+        For counter As Integer = 1 To losningsOrd.Length
+            streker = streker + "-"
+        Next
+
+        lblSvar.Text = streker
+
+        txtBokstav.Select()
+    End Sub
+
+
+
+
 
     'Henter det inntastede ordet og lagrer det, og lager en string med antall "?" lik løsningsordet som skrives til label.
     'Om ordet er under tre bokstaver vil en varselboks vises
@@ -145,7 +230,9 @@
             losningsOrd = txtLosningsOrd.Text
             lblSvar.Text = ""
             txtLosningsOrd.Hide()
+            Random.Hide()
             btnBekreftord.Hide()
+
             lblOverskriftinput.Hide()
             lblOverskriftbokstav.Show()
             txtBokstav.Show()
@@ -160,6 +247,8 @@
             txtBokstav.Select()
         End If
 
+        lblBruktebokstaver.Show()
+
 
     End Sub
 
@@ -169,11 +258,13 @@
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles btnNullstill.Click
         click1.Play()
         btnBekreftord.Show()
+        Random.Show()
         txtLosningsOrd.Show()
         lblOverskriftinput.Show()
         lblOverskriftbokstav.Hide()
         txtBokstav.Hide()
         btnSjekkbokstav.Hide()
+        lblBruktebokstaver.Hide()
         txtLosningsOrd.Text = Nothing
         txtBokstav.Text = Nothing
         lblSvar.Text = ""
@@ -196,35 +287,5 @@
         End If
     End Sub
 
-    Private Sub btnHentord_Click(sender As Object, e As EventArgs) Handles btnHentord.Click
-        Dim ordlisteTeller As Integer
-        ordlisteTeller = Int((100 * Rnd()) + 1)
-        Dim fileReader As System.IO.StreamReader
-        fileReader = My.Computer.FileSystem.OpenTextFileReader("E:\Dropbox\IT NTNU\teamarbeid\prosjekt\Spill\Hangman\Hangman\Resources\ordliste.txt")
-        Dim stringReader As String = Nothing
-
-
-        For counter As Integer = 1 To ordlisteTeller
-            stringReader = fileReader.ReadLine()
-        Next
-
-        txtTest.Text = stringReader
-        losningsOrd = txtTest.Text
-        lblSvar.Text = ""
-        txtLosningsOrd.Hide()
-        btnBekreftord.Hide()
-        lblOverskriftbokstav.Show()
-        txtBokstav.Show()
-        btnSjekkbokstav.Show()
-
-        Dim temp As New System.Text.StringBuilder
-        For Each Character As Char In losningsOrd
-            temp.Append("-")
-        Next
-
-        lblSvar.Text = temp.ToString
-        txtBokstav.Select()
-
-    End Sub
 
 End Class

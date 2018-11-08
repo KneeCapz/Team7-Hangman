@@ -38,8 +38,7 @@ Partial Class Form2
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.PictureBox = New System.Windows.Forms.PictureBox()
         Me.lblBruktebokstaver = New System.Windows.Forms.Label()
-        Me.btnHentord = New System.Windows.Forms.Button()
-        Me.txtTest = New System.Windows.Forms.TextBox()
+        Me.Random = New System.Windows.Forms.Button()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -122,7 +121,7 @@ Partial Class Form2
         Me.btnBekreftord.Font = New System.Drawing.Font("Viner Hand ITC", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBekreftord.Location = New System.Drawing.Point(789, 653)
         Me.btnBekreftord.Name = "btnBekreftord"
-        Me.btnBekreftord.Size = New System.Drawing.Size(150, 40)
+        Me.btnBekreftord.Size = New System.Drawing.Size(196, 40)
         Me.btnBekreftord.TabIndex = 12
         Me.btnBekreftord.Text = "Bekreft ord"
         Me.btnBekreftord.UseVisualStyleBackColor = True
@@ -142,7 +141,7 @@ Partial Class Form2
         Me.lblGjettetbokstav.BackColor = System.Drawing.Color.Transparent
         Me.lblGjettetbokstav.Font = New System.Drawing.Font("Viner Hand ITC", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGjettetbokstav.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblGjettetbokstav.Location = New System.Drawing.Point(219, 649)
+        Me.lblGjettetbokstav.Location = New System.Drawing.Point(228, 589)
         Me.lblGjettetbokstav.Name = "lblGjettetbokstav"
         Me.lblGjettetbokstav.Size = New System.Drawing.Size(200, 51)
         Me.lblGjettetbokstav.TabIndex = 17
@@ -155,9 +154,9 @@ Partial Class Form2
         Me.lblOverskriftinput.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.lblOverskriftinput.Location = New System.Drawing.Point(781, 534)
         Me.lblOverskriftinput.Name = "lblOverskriftinput"
-        Me.lblOverskriftinput.Size = New System.Drawing.Size(218, 44)
+        Me.lblOverskriftinput.Size = New System.Drawing.Size(479, 44)
         Me.lblOverskriftinput.TabIndex = 18
-        Me.lblOverskriftinput.Text = "Skriv inn et ord"
+        Me.lblOverskriftinput.Text = "Skriv inn et ord eller velg et tilfeldig"
         Me.lblOverskriftinput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblOverskriftbokstav
@@ -201,29 +200,23 @@ Partial Class Form2
         '
         Me.lblBruktebokstaver.BackColor = System.Drawing.Color.Transparent
         Me.lblBruktebokstaver.Font = New System.Drawing.Font("Viner Hand ITC", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBruktebokstaver.Location = New System.Drawing.Point(12, 653)
+        Me.lblBruktebokstaver.Location = New System.Drawing.Point(12, 592)
         Me.lblBruktebokstaver.Name = "lblBruktebokstaver"
         Me.lblBruktebokstaver.Size = New System.Drawing.Size(210, 40)
         Me.lblBruktebokstaver.TabIndex = 22
         Me.lblBruktebokstaver.Text = "Brukte bokstaver:"
         Me.lblBruktebokstaver.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblBruktebokstaver.Visible = False
         '
-        'btnHentord
+        'Random
         '
-        Me.btnHentord.Location = New System.Drawing.Point(1105, 429)
-        Me.btnHentord.Name = "btnHentord"
-        Me.btnHentord.Size = New System.Drawing.Size(75, 23)
-        Me.btnHentord.TabIndex = 23
-        Me.btnHentord.Text = "Button1"
-        Me.btnHentord.UseVisualStyleBackColor = True
-        '
-        'txtTest
-        '
-        Me.txtTest.Location = New System.Drawing.Point(1105, 505)
-        Me.txtTest.Name = "txtTest"
-        Me.txtTest.Size = New System.Drawing.Size(100, 20)
-        Me.txtTest.TabIndex = 24
-        Me.txtTest.Text = "test"
+        Me.Random.Font = New System.Drawing.Font("Viner Hand ITC", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Random.Location = New System.Drawing.Point(1040, 586)
+        Me.Random.Name = "Random"
+        Me.Random.Size = New System.Drawing.Size(196, 51)
+        Me.Random.TabIndex = 23
+        Me.Random.Text = "Tilfeldig ord"
+        Me.Random.UseVisualStyleBackColor = True
         '
         'Form2
         '
@@ -232,8 +225,7 @@ Partial Class Form2
         Me.BackgroundImage = Global.Hangman.My.Resources.Resources.Hangman0
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1280, 720)
-        Me.Controls.Add(Me.txtTest)
-        Me.Controls.Add(Me.btnHentord)
+        Me.Controls.Add(Me.Random)
         Me.Controls.Add(Me.lblBruktebokstaver)
         Me.Controls.Add(Me.lblOverskriftinput)
         Me.Controls.Add(Me.btnLyd)
@@ -274,6 +266,5 @@ Partial Class Form2
     Friend WithEvents BindingSource1 As BindingSource
     Friend WithEvents PictureBox As PictureBox
     Friend WithEvents lblBruktebokstaver As Label
-    Friend WithEvents btnHentord As Button
-    Friend WithEvents txtTest As TextBox
+    Friend WithEvents Random As Button
 End Class
