@@ -81,6 +81,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property clap() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("clap", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property click1() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("click1", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property Hangman0() As System.Drawing.Bitmap
@@ -146,6 +164,103 @@ Namespace My.Resources
         Friend ReadOnly Property intro() As System.IO.UnmanagedMemoryStream
             Get
                 Return ResourceManager.GetStream("intro", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to admiral
+        '''aften
+        '''akt
+        '''alaltan
+        '''ammalgam
+        '''anorakk
+        '''aroma
+        '''arrasjett
+        '''asparges
+        '''asyl
+        '''atlas
+        '''atom
+        '''avlavløp
+        '''åkåker
+        '''ånd
+        '''ånde
+        '''åpning
+        '''åre
+        '''balje
+        '''balkong
+        '''ball
+        '''ballett
+        '''balsam
+        '''bamse
+        '''banan
+        '''banjo
+        '''bark
+        '''barm
+        '''barsel
+        '''bart
+        '''basseng
+        '''bataljon
+        '''batteri
+        '''baug
+        '''bavian
+        '''båt
+        '''bær
+        '''beger
+        '''bekken
+        '''belg
+        '''betennelse
+        '''bibel
+        '''bihule
+        '''binne
+        '''bjelke
+        '''bjelle
+        '''blære
+        '''blei
+        '''bleie
+        '''blekk
+        '''blemme
+        '''blest
+        '''blink
+        '''blod
+        '''bluse
+        '''blyant
+        '''boble
+        '''bog
+        '''boms
+        '''bonus
+        '''bor
+        '''borg
+        '''bøddel
+        '''bølge
+        '''bøtte
+        '''bøye
+        '''bram
+        '''brask
+        '''bråte
+        '''bresj
+        '''bret [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property ordliste_random() As String
+            Get
+                Return ResourceManager.GetString("ordliste_random", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property tap() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("tap", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property tavle() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("tavle", resourceCulture)
             End Get
         End Property
     End Module

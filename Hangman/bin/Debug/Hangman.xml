@@ -32,6 +32,16 @@ Hangman
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Hangman.My.Resources.Resources.clap">
+<summary>
+  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member>
+<member name="P:Hangman.My.Resources.Resources.click1">
+<summary>
+  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member>
 <member name="P:Hangman.My.Resources.Resources.Hangman0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -63,6 +73,91 @@ Hangman
 </summary>
 </member>
 <member name="P:Hangman.My.Resources.Resources.intro">
+<summary>
+  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member>
+<member name="P:Hangman.My.Resources.Resources.ordliste_random">
+<summary>
+  Looks up a localized string similar to admiral
+aften
+akt
+alaltan
+ammalgam
+anorakk
+aroma
+arrasjett
+asparges
+asyl
+atlas
+atom
+avlavløp
+åkåker
+ånd
+ånde
+åpning
+åre
+balje
+balkong
+ball
+ballett
+balsam
+bamse
+banan
+banjo
+bark
+barm
+barsel
+bart
+basseng
+bataljon
+batteri
+baug
+bavian
+båt
+bær
+beger
+bekken
+belg
+betennelse
+bibel
+bihule
+binne
+bjelke
+bjelle
+blære
+blei
+bleie
+blekk
+blemme
+blest
+blink
+blod
+bluse
+blyant
+boble
+bog
+boms
+bonus
+bor
+borg
+bøddel
+bølge
+bøtte
+bøye
+bram
+brask
+bråte
+bresj
+bret [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Hangman.My.Resources.Resources.tap">
+<summary>
+  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member>
+<member name="P:Hangman.My.Resources.Resources.tavle">
 <summary>
   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
 </summary>
