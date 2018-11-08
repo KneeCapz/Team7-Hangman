@@ -42,7 +42,7 @@ Partial Class Form1
         Me.btnLyd.Name = "btnLyd"
         Me.btnLyd.Size = New System.Drawing.Size(150, 40)
         Me.btnLyd.TabIndex = 2
-        Me.btnLyd.Text = "Lyd Av"
+        Me.btnLyd.Text = "Musikk av"
         Me.btnLyd.UseVisualStyleBackColor = False
         '
         'btnBakgrunn
@@ -57,6 +57,7 @@ Partial Class Form1
         Me.btnBakgrunn.TabIndex = 3
         Me.btnBakgrunn.Text = "Bytt bakgrunn"
         Me.btnBakgrunn.UseVisualStyleBackColor = False
+        Me.btnBakgrunn.Visible = False
         '
         'btnAvslutt
         '
@@ -95,8 +96,8 @@ Partial Class Form1
         Me.lblRegler.Size = New System.Drawing.Size(277, 172)
         Me.lblRegler.TabIndex = 6
         Me.lblRegler.Text = "Skriv inn et hemmelig ord" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "på maks 10 bokstaver. La en" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "annen komme fram til orde" &
-    "t" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ved å gjette bokstaver. Om" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "en gjetter feil bokstav 10" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ganger er spillet ove" &
-    "r."
+    "t" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ved å gjette bokstaver. Om" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "en gjetter feil bokstav 5" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ganger er spillet over" &
+    "."
         Me.lblRegler.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Form1

@@ -26,7 +26,7 @@ Namespace My.Resources
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
-    Friend Module Resources
+    Public Module Resources
         
         Private resourceMan As Global.System.Resources.ResourceManager
         
@@ -36,7 +36,7 @@ Namespace My.Resources
         '''  Returns the cached ResourceManager instance used by this class.
         '''</summary>
         <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
-        Friend ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
+        Public ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
                 If Object.ReferenceEquals(resourceMan, Nothing) Then
                     Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("Hangman.Resources", GetType(Resources).Assembly)
@@ -51,7 +51,7 @@ Namespace My.Resources
         '''  resource lookups using this strongly typed resource class.
         '''</summary>
         <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
-        Friend Property Culture() As Global.System.Globalization.CultureInfo
+        Public Property Culture() As Global.System.Globalization.CultureInfo
             Get
                 Return resourceCulture
             End Get
@@ -63,7 +63,7 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property bakgrunn() As System.Drawing.Bitmap
+        Public ReadOnly Property bakgrunn() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("bakgrunn", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
@@ -73,7 +73,7 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property bakgrunn2() As System.Drawing.Bitmap
+        Public ReadOnly Property bakgrunn2() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("bakgrunn2", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
@@ -81,9 +81,27 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Public ReadOnly Property clap() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("clap", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Public ReadOnly Property click1() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("click1", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Hangman0() As System.Drawing.Bitmap
+        Public ReadOnly Property Hangman0() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Hangman0", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
@@ -93,7 +111,7 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Hangman1() As System.Drawing.Bitmap
+        Public ReadOnly Property Hangman1() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Hangman1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
@@ -103,7 +121,7 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Hangman2() As System.Drawing.Bitmap
+        Public ReadOnly Property Hangman2() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Hangman2", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
@@ -113,7 +131,7 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Hangman3() As System.Drawing.Bitmap
+        Public ReadOnly Property Hangman3() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Hangman3", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
@@ -123,7 +141,7 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Hangman4() As System.Drawing.Bitmap
+        Public ReadOnly Property Hangman4() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Hangman4", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
@@ -133,7 +151,7 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Hangman5() As System.Drawing.Bitmap
+        Public ReadOnly Property Hangman5() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Hangman5", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
@@ -143,9 +161,106 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         '''</summary>
-        Friend ReadOnly Property intro() As System.IO.UnmanagedMemoryStream
+        Public ReadOnly Property intro() As System.IO.UnmanagedMemoryStream
             Get
                 Return ResourceManager.GetStream("intro", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to admiral
+        '''aften
+        '''akt
+        '''alaltan
+        '''ammalgam
+        '''anorakk
+        '''aroma
+        '''arrasjett
+        '''asparges
+        '''asyl
+        '''atlas
+        '''atom
+        '''avlavløp
+        '''åkåker
+        '''ånd
+        '''ånde
+        '''åpning
+        '''åre
+        '''balje
+        '''balkong
+        '''ball
+        '''ballett
+        '''balsam
+        '''bamse
+        '''banan
+        '''banjo
+        '''bark
+        '''barm
+        '''barsel
+        '''bart
+        '''basseng
+        '''bataljon
+        '''batteri
+        '''baug
+        '''bavian
+        '''båt
+        '''bær
+        '''beger
+        '''bekken
+        '''belg
+        '''betennelse
+        '''bibel
+        '''bihule
+        '''binne
+        '''bjelke
+        '''bjelle
+        '''blære
+        '''blei
+        '''bleie
+        '''blekk
+        '''blemme
+        '''blest
+        '''blink
+        '''blod
+        '''bluse
+        '''blyant
+        '''boble
+        '''bog
+        '''boms
+        '''bonus
+        '''bor
+        '''borg
+        '''bøddel
+        '''bølge
+        '''bøtte
+        '''bøye
+        '''bram
+        '''brask
+        '''bråte
+        '''bresj
+        '''bret [rest of string was truncated]&quot;;.
+        '''</summary>
+        Public ReadOnly Property ordliste_random() As String
+            Get
+                Return ResourceManager.GetString("ordliste_random", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Public ReadOnly Property tap() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("tap", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Public ReadOnly Property tavle() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("tavle", resourceCulture)
             End Get
         End Property
     End Module
